@@ -67,8 +67,8 @@ while choice != 'q'
     end
   when "4"
     $message = "Tenant contact list:\n"
-    binding.pry
-    $message += building.get_contact_list.to_s
+    # binding.pry
+    $message += building.get_contact_list
   when "5"
     #$message = "Total rented sqft:"
     #sqft_rented = building.calc_total_sqft_rented()

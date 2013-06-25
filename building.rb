@@ -26,15 +26,17 @@ class Building
   end
 
   def display_tenant_info(tenant)
-    binding.pry
-    "#{tenant.name} - #{tenant.phone.to_s} Unit: #{tenant.unit.to_s}"
+    # binding.pry
+    "Unit: #{tenant.unit.to_s} - #{tenant.name} \(#{tenant.phone}\)\n"
   end
 
   def get_contact_list
+    contact_info = ""
     @units.each do |unit|
-      binding.pry
-      contact_info = display_tenant_info(unit.tenant)
+      # binding.pry
+      contact_info += display_tenant_info(unit.tenant)
     end
+    contact_info
   end
 
   def get_available_units
