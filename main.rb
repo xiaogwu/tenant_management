@@ -64,7 +64,11 @@ while choice != 'q'
     end
   when "4"
     $message = "Tenant contact list:\n"
-    $message += building.get_contact_list
+    if building.get_contact_list.empty?
+      $message += "No Tenant(s) to list"
+    else
+      $message += building.get_contact_list
+    end
   when "5"
     $message = "Total rented sqft: "
     sqft_rented = building.calc_total_sqft_rented
