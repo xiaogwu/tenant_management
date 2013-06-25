@@ -41,7 +41,6 @@ while choice != 'q'
     rent = gets.chomp.to_i
     building.units  << Unit.new(building, number, sqft, rent)
     $message = "Added Unit #{building.units.last.number}"
-    # binding.pry
   when "2"
     # add code to create tenant and assign to unit
     print "Tenant name: "
@@ -53,7 +52,6 @@ while choice != 'q'
     unit = building.units.select { |unit| unit.number == number}
     unit.first.tenant = Tenant.new(name, phone, number)
     $message = "Added Tenant #{unit.first.tenant.name} to Unit #{unit.first.number}"
-    # binding.pry
   when "3"
     available_units = building.get_available_units
     $message = "List of all available units:\n"
@@ -63,20 +61,18 @@ while choice != 'q'
       available_units.each do |available_unit|
       $message += available_unit.number.to_s + " "
     end
-    # binding.pry
     end
   when "4"
     $message = "Tenant contact list:\n"
-    # binding.pry
     $message += building.get_contact_list
   when "5"
-    #$message = "Total rented sqft:"
-    #sqft_rented = building.calc_total_sqft_rented()
-    #$message += sqft_rented.to_s
+    $message = "Total rented sqft: "
+    sqft_rented = building.calc_total_sqft_rented
+    $message += sqft_rented.to_s
   when "6"
-    #$message = "Annual income:"
-    #total_income = building.calc_annual_income()
-    #$message += total_income.to_s
+    $message = "Annual income: $"
+    total_income = building.calc_annual_income
+    $message += total_income.to_s
   else
       "I don't understand ..."
   end
